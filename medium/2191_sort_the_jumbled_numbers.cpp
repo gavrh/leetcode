@@ -1,6 +1,6 @@
 // LeetCode 2191. Sort the Jumbled Numbers (Medium)
 // https://leetcode.com/problems/sort-the-jumbled-numbers/
-// Submitted 2025-03-10 00:09 UTC · runtime 282 · memory 161288000 · submission 1568564502
+// Submitted 2025-03-10 00:09 UTC · runtime 282 ms · memory 161.3 MB · submission 1568564502
 
 class Solution {
 public:

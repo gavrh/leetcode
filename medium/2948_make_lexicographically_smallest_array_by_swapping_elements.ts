@@ -1,6 +1,6 @@
 // LeetCode 2948. Make Lexicographically Smallest Array by Swapping Elements (Medium)
 // https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/
-// Submitted 2026-08-29 11:55 UTC · runtime 244 · memory 97840000 · submission 2123790256
+// Submitted 2026-08-29 11:55 UTC · runtime 244 ms · memory 97.8 MB · submission 2123790256
 
 function lexicographicallySmallestArray(nums: number[], limit: number): number[] {
     const sorted = nums

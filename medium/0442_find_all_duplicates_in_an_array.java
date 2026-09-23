@@ -1,6 +1,6 @@
 // LeetCode 442. Find All Duplicates in an Array (Medium)
 // https://leetcode.com/problems/find-all-duplicates-in-an-array/
-// Submitted 2025-03-05 18:51 UTC · runtime 6 · memory 57244000 · submission 1564103011
+// Submitted 2025-03-05 18:51 UTC · runtime 6 ms · memory 57.2 MB · submission 1564103011
 
 class Solution {
     public List<Integer> findDuplicates(int[] nums) {

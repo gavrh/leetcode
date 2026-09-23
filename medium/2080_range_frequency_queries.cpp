@@ -1,6 +1,6 @@
 // LeetCode 2080. Range Frequency Queries (Medium)
 // https://leetcode.com/problems/range-frequency-queries/
-// Submitted 2025-04-26 21:46 UTC · runtime 61 · memory 241052000 · submission 1618763213
+// Submitted 2025-04-26 21:46 UTC · runtime 61 ms · memory 241.1 MB · submission 1618763213
 
 class RangeFreqQuery {
 private:

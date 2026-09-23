@@ -1,6 +1,6 @@
 // LeetCode 2140. Solving Questions With Brainpower (Medium)
 // https://leetcode.com/problems/solving-questions-with-brainpower/
-// Submitted 2025-04-18 02:01 UTC · runtime N/A · memory 119640000 · submission 1610020460
+// Submitted 2025-04-18 02:01 UTC · runtime N/A · memory 119.6 MB · submission 1610020460
 
 class Solution {
 public:

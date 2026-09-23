@@ -1,6 +1,6 @@
 // LeetCode 144. Binary Tree Preorder Traversal (Easy)
 // https://leetcode.com/problems/binary-tree-preorder-traversal/
-// Submitted 2025-04-16 17:00 UTC · runtime N/A · memory 41612000 · submission 1608742045
+// Submitted 2025-04-16 17:00 UTC · runtime N/A · memory 41.6 MB · submission 1608742045
 
 /**
  * Definition for a binary tree node.

@@ -42,7 +42,7 @@ PAGE_SIZE = 20
 
 TOP_DIRS = ("easy", "medium", "hard")
 DIFFICULTY_DIR = {"Easy": "easy", "Medium": "medium", "Hard": "hard"}
-PAD_WIDTH = 4  # zero-pad problem numbers so the GitHub tree sorts numerically
+PAD_WIDTH = 4
 
 # LeetCode language slug -> file extension.
 LANG_EXT = {
@@ -136,8 +136,6 @@ README_END = "<!-- leetcode-stats:end -->"
 
 FILENAME_RE = re.compile(r"^(\d+)_(.+)\.([A-Za-z0-9]+)$")
 HEADER_SUBMISSION_RE = re.compile(r"submission (\d+)", re.IGNORECASE)
-HEADER_RUNTIME_RE = re.compile(r"runtime ([\d.]+) ms")
-HEADER_MEMORY_RE = re.compile(r"memory ([\d.]+) MB")
 HEADER_SUBMITTED_RE = re.compile(r"Submitted (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC")
 
 INF = float("inf")
@@ -266,6 +264,37 @@ def padded_id(frontend_id) -> str:
         return str(frontend_id)
 
 
+def parse_header_runtime(text: str) -> "float | None":
+    """Runtime in ms; handles both `runtime 166 ms` and legacy `runtime 166`."""
+    match = re.search(r"runtime\s+([\d.]+)", text)
+    return float(match.group(1)) if match else None
+
+
+def parse_header_memory(text: str) -> "float | None":
+    """Memory in MB; handles `memory 11.6 MB` and legacy raw bytes `memory 11556000`."""
+    match = re.search(r"memory\s+([\d.]+)\s*(MB|KB|B)?", text, re.IGNORECASE)
+    if not match:
+        return None
+    value = float(match.group(1))
+    unit = (match.group(2) or "").upper()
+    if unit == "MB":
+        return value
+    if unit == "KB":
+        return value / 1000
+    return value / 1_000_000  # bare value (legacy) or bytes
+
+
+def format_runtime(ms) -> str:
+    if ms is None:
+        return "N/A"
+    number = float(ms)
+    return f"{int(number)} ms" if number.is_integer() else f"{number:g} ms"
+
+
+def format_memory(mb) -> str:
+    return "N/A" if mb is None else f"{float(mb):.1f} MB"
+
+
 def scan_state(root: str, dry_run: bool = False) -> dict:
     """Rebuild sync state from the header comments of existing solution files."""
     state = {}
@@ -282,10 +311,11 @@ def scan_state(root: str, dry_run: bool = False) -> dict:
                 continue
             try:
                 with open(path, "r", encoding="utf-8", errors="replace") as handle:
-                    head = "".join(handle.readlines()[:6])
+                    content = handle.read()
             except OSError as exc:
                 warn(f"could not read {path}: {exc}")
                 continue
+            head = "".join(content.splitlines(keepends=True)[:6])
             submission = HEADER_SUBMISSION_RE.search(head)
             if not submission:
                 continue  # not a synced file; leave it alone
@@ -303,21 +333,45 @@ def scan_state(root: str, dry_run: bool = False) -> dict:
                         os.rename(path, new_path)
                     path = new_path
 
-            runtime = HEADER_RUNTIME_RE.search(head)
-            memory = HEADER_MEMORY_RE.search(head)
+            runtime_ms = parse_header_runtime(head)
+            memory_mb = parse_header_memory(head)
             submitted = HEADER_SUBMITTED_RE.search(head)
+            when = submitted.group(1) if submitted else None
             timestamp = 0
-            if submitted:
+            if when:
                 try:
-                    when = datetime.strptime(submitted.group(1), "%Y-%m-%d %H:%M")
-                    timestamp = int(when.replace(tzinfo=timezone.utc).timestamp())
+                    timestamp = int(
+                        datetime.strptime(when, "%Y-%m-%d %H:%M")
+                        .replace(tzinfo=timezone.utc)
+                        .timestamp()
+                    )
                 except ValueError:
                     timestamp = 0
+
+            # Normalize the metrics line to explicit units (ms / MB).
+            if when:
+                prefix = comment_prefix(match.group(3))
+                metrics_line = (
+                    f"{prefix} Submitted {when} UTC \u00b7 "
+                    f"runtime {format_runtime(runtime_ms)} \u00b7 "
+                    f"memory {format_memory(memory_mb)} \u00b7 "
+                    f"submission {submission.group(1)}\n"
+                )
+                lines = content.splitlines(keepends=True)
+                for index, line in enumerate(lines[:6]):
+                    if "Submitted " in line and line != metrics_line:
+                        print(f"normalize {top}/{os.path.basename(path)}")
+                        if not dry_run:
+                            lines[index] = metrics_line
+                            with open(path, "w", encoding="utf-8") as handle:
+                                handle.write("".join(lines))
+                        break
+
             state[(slug, match.group(3))] = {
                     "path": path,
                     "submission_id": int(submission.group(1)),
-                    "runtime": float(runtime.group(1)) if runtime else None,
-                    "memory": float(memory.group(1)) if memory else None,
+                    "runtime": runtime_ms,
+                    "memory": memory_mb,
                     "timestamp": timestamp,
                     }
     return state
@@ -374,6 +428,8 @@ def pick_best(recent: list) -> dict:
                 "id": int(submission["id"]),
                 "runtime": parse_metric(submission.get("runtime")),
                 "memory": parse_metric(submission.get("memory")),
+                "runtime_str": submission.get("runtime"),
+                "memory_str": submission.get("memory"),
                 "timestamp": submission.get("timestamp") or 0,
                 }
         current = groups.get(key)
@@ -382,15 +438,15 @@ def pick_best(recent: list) -> dict:
     return groups
 
 
-def build_file(detail: dict, ext: str) -> str:
+def build_file(detail: dict, ext: str, runtime_text: "str | None" = None, memory_text: "str | None" = None) -> str:
     question = detail.get("question") or {}
     frontend_id = question.get("questionFrontendId") or "?"
     title = question.get("title") or "Unknown"
     difficulty = question.get("difficulty") or "Unknown"
     slug = question.get("titleSlug") or ""
     submission_id = detail.get("id")
-    runtime = detail.get("runtime") or "N/A"
-    memory = detail.get("memory") or "N/A"
+    runtime = runtime_text or "N/A"
+    memory = memory_text or "N/A"
     timestamp = detail.get("timestamp")
     if timestamp:
         when = datetime.fromtimestamp(timestamp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M")
@@ -530,7 +586,7 @@ def main() -> int:
             continue
         lang = (detail.get("lang") or {}).get("name") or ""
         dest_ext = LANG_EXT.get(lang, ext)
-        text = build_file(detail, dest_ext)
+        text = build_file(detail, dest_ext, candidate.get("runtime_str"), candidate.get("memory_str"))
         path = destination(root, detail, dest_ext)
         action = "update" if (slug, ext) in state else "add"
         rel = os.path.relpath(path, root)

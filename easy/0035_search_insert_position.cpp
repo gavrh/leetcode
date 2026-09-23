@@ -1,6 +1,6 @@
 // LeetCode 35. Search Insert Position (Easy)
 // https://leetcode.com/problems/search-insert-position/
-// Submitted 2026-09-20 10:26 UTC · runtime N/A · memory 13724000 · submission 2147577365
+// Submitted 2026-09-20 10:26 UTC · runtime N/A · memory 13.7 MB · submission 2147577365
 
 class Solution {
 public:

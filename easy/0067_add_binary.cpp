@@ -1,6 +1,6 @@
 // LeetCode 67. Add Binary (Easy)
 // https://leetcode.com/problems/add-binary/
-// Submitted 2026-09-19 01:34 UTC · runtime N/A · memory 8944000 · submission 2146205950
+// Submitted 2026-09-19 01:34 UTC · runtime N/A · memory 8.9 MB · submission 2146205950
 
 class Solution {
 public:

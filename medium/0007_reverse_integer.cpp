@@ -1,6 +1,6 @@
 // LeetCode 7. Reverse Integer (Medium)
 // https://leetcode.com/problems/reverse-integer/
-// Submitted 2025-02-10 18:49 UTC · runtime N/A · memory 8948000 · submission 1538462022
+// Submitted 2025-02-10 18:49 UTC · runtime N/A · memory 8.9 MB · submission 1538462022
 
 class Solution {
 public:

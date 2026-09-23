@@ -1,6 +1,6 @@
 // LeetCode 2325. Decode the Message (Easy)
 // https://leetcode.com/problems/decode-the-message/
-// Submitted 2025-04-01 00:30 UTC · runtime 6 · memory 42580000 · submission 1592542843
+// Submitted 2025-04-01 00:30 UTC · runtime 6 ms · memory 42.6 MB · submission 1592542843
 
 class Solution {
     public String decodeMessage(String key, String message) {

@@ -1,6 +1,6 @@
 // LeetCode 20. Valid Parentheses (Easy)
 // https://leetcode.com/problems/valid-parentheses/
-// Submitted 2025-02-12 06:48 UTC · runtime 2 · memory 41912000 · submission 1540183080
+// Submitted 2025-02-12 06:48 UTC · runtime 2 ms · memory 41.9 MB · submission 1540183080
 
 class Solution {
     public boolean isValid(String s) {

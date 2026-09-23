@@ -1,6 +1,6 @@
 // LeetCode 1. Two Sum (Easy)
 // https://leetcode.com/problems/two-sum/
-// Submitted 2023-07-24 05:49 UTC · runtime 166 · memory 10084000 · submission 1002353361
+// Submitted 2023-07-24 05:49 UTC · runtime 166 ms · memory 10.1 MB · submission 1002353361
 
 class Solution {
 public:

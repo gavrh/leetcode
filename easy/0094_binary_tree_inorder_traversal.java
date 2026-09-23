@@ -1,6 +1,6 @@
 // LeetCode 94. Binary Tree Inorder Traversal (Easy)
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
-// Submitted 2025-04-16 16:56 UTC · runtime N/A · memory 41688000 · submission 1608737792
+// Submitted 2025-04-16 16:56 UTC · runtime N/A · memory 41.7 MB · submission 1608737792
 
 /**
  * Definition for a binary tree node.

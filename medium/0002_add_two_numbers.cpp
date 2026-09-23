@@ -1,6 +1,6 @@
 // LeetCode 2. Add Two Numbers (Medium)
 // https://leetcode.com/problems/add-two-numbers/
-// Submitted 2025-04-23 13:28 UTC · runtime N/A · memory 77.1 MB · submission 1615691904
+// Submitted 2025-04-23 13:28 UTC · runtime 0 ms · memory 77.1 MB · submission 1615691904
 
 /**
  * Definition for singly-linked list.

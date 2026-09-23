@@ -1,6 +1,6 @@
 // LeetCode 9. Palindrome Number (Easy)
 // https://leetcode.com/problems/palindrome-number/
-// Submitted 2024-12-24 10:21 UTC · runtime N/A · memory 8.6 MB · submission 1487069688
+// Submitted 2024-12-24 10:21 UTC · runtime 0 ms · memory 8.6 MB · submission 1487069688
 
 class Solution {
 public:

@@ -1,6 +1,6 @@
 // LeetCode 98. Validate Binary Search Tree (Medium)
 // https://leetcode.com/problems/validate-binary-search-tree/
-// Submitted 2025-04-28 17:24 UTC · runtime N/A · memory 44.4 MB · submission 1620414195
+// Submitted 2025-04-28 17:24 UTC · runtime 0 ms · memory 44.4 MB · submission 1620414195
 
 /**
  * Definition for a binary tree node.

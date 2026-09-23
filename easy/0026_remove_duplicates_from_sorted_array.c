@@ -1,6 +1,6 @@
 // LeetCode 26. Remove Duplicates from Sorted Array (Easy)
 // https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-// Submitted 2025-03-08 22:36 UTC · runtime N/A · memory 12.1 MB · submission 1567442445
+// Submitted 2025-03-08 22:36 UTC · runtime 0 ms · memory 12.1 MB · submission 1567442445
 
 int removeDuplicates(int* nums, int numsSize) {
     int unique = 1;

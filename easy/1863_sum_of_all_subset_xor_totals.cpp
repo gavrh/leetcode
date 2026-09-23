@@ -1,6 +1,6 @@
 // LeetCode 1863. Sum of All Subset XOR Totals (Easy)
 // https://leetcode.com/problems/sum-of-all-subset-xor-totals/
-// Submitted 2025-04-26 15:27 UTC · runtime N/A · memory 9.3 MB · submission 1618509276
+// Submitted 2025-04-26 15:27 UTC · runtime 0 ms · memory 9.3 MB · submission 1618509276
 
 class Solution {
 public:

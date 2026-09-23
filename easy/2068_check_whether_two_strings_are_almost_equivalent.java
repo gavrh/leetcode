@@ -1,6 +1,6 @@
 // LeetCode 2068. Check Whether Two Strings are Almost Equivalent (Easy)
 // https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent/
-// Submitted 2025-03-12 16:26 UTC · runtime N/A · memory 42.1 MB · submission 1571580121
+// Submitted 2025-03-12 16:26 UTC · runtime 0 ms · memory 42.1 MB · submission 1571580121
 
 class Solution {
     public boolean checkAlmostEquivalent(String word1, String word2) {

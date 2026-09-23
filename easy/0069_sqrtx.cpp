@@ -1,6 +1,6 @@
 // LeetCode 69. Sqrt(x) (Easy)
 // https://leetcode.com/problems/sqrtx/
-// Submitted 2025-03-29 22:38 UTC · runtime N/A · memory 8.6 MB · submission 1590509677
+// Submitted 2025-03-29 22:38 UTC · runtime 0 ms · memory 8.6 MB · submission 1590509677
 
 class Solution {
 public:

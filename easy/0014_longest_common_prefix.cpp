@@ -1,6 +1,6 @@
 // LeetCode 14. Longest Common Prefix (Easy)
 // https://leetcode.com/problems/longest-common-prefix/
-// Submitted 2024-12-24 11:25 UTC · runtime N/A · memory 12.1 MB · submission 1487108919
+// Submitted 2024-12-24 11:25 UTC · runtime 0 ms · memory 12.1 MB · submission 1487108919
 
 class Solution {
 public:

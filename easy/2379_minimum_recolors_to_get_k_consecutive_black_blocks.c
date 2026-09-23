@@ -1,6 +1,6 @@
 // LeetCode 2379. Minimum Recolors to Get K Consecutive Black Blocks (Easy)
 // https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/
-// Submitted 2025-03-08 21:40 UTC · runtime N/A · memory 7.8 MB · submission 1567412597
+// Submitted 2025-03-08 21:40 UTC · runtime 0 ms · memory 7.8 MB · submission 1567412597
 
 int minimumRecolors(char* blocks, int k) {
     int min_w = k;

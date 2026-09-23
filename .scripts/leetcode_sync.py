@@ -42,6 +42,7 @@ PAGE_SIZE = 20
 
 TOP_DIRS = ("easy", "medium", "hard")
 DIFFICULTY_DIR = {"Easy": "easy", "Medium": "medium", "Hard": "hard"}
+PAD_WIDTH = 4  # zero-pad problem numbers so the GitHub tree sorts numerically
 
 # LeetCode language slug -> file extension.
 LANG_EXT = {
@@ -258,7 +259,14 @@ class GraphQL:
         return parsed.get("data") or {}
 
 
-def scan_state(root: str) -> dict:
+def padded_id(frontend_id) -> str:
+    try:
+        return f"{int(frontend_id):0{PAD_WIDTH}d}"
+    except (TypeError, ValueError):
+        return str(frontend_id)
+
+
+def scan_state(root: str, dry_run: bool = False) -> dict:
     """Rebuild sync state from the header comments of existing solution files."""
     state = {}
     for top in TOP_DIRS:
@@ -281,6 +289,20 @@ def scan_state(root: str) -> dict:
             submission = HEADER_SUBMISSION_RE.search(head)
             if not submission:
                 continue  # not a synced file; leave it alone
+            slug = match.group(2).replace("_", "-")
+
+            # Migrate older, unpadded filenames (e.g. 13_roman_to_integer.js).
+            canonical = f"{padded_id(match.group(1))}_{match.group(2)}.{match.group(3)}"
+            if canonical != name:
+                new_path = os.path.join(directory, canonical)
+                if os.path.exists(new_path):
+                    warn(f"cannot rename {top}/{name}: {canonical} already exists")
+                else:
+                    print(f"rename {top}/{name} -> {top}/{canonical}")
+                    if not dry_run:
+                        os.rename(path, new_path)
+                    path = new_path
+
             runtime = HEADER_RUNTIME_RE.search(head)
             memory = HEADER_MEMORY_RE.search(head)
             submitted = HEADER_SUBMITTED_RE.search(head)
@@ -291,7 +313,6 @@ def scan_state(root: str) -> dict:
                     timestamp = int(when.replace(tzinfo=timezone.utc).timestamp())
                 except ValueError:
                     timestamp = 0
-            slug = match.group(2).replace("_", "-")
             state[(slug, match.group(3))] = {
                     "path": path,
                     "submission_id": int(submission.group(1)),
@@ -393,7 +414,7 @@ def destination(root: str, detail: dict, ext: str) -> str:
     slug = (question.get("titleSlug") or "unknown").replace("-", "_")
     difficulty = question.get("difficulty")
     directory = DIFFICULTY_DIR.get(difficulty, "medium")
-    return os.path.join(root, directory, f"{frontend_id}_{slug}.{ext}")
+    return os.path.join(root, directory, f"{padded_id(frontend_id)}_{slug}.{ext}")
 
 
 def format_number(value) -> str:
@@ -481,7 +502,7 @@ def main() -> int:
     username = status.get("username") or ""
     print(f"signed in as {username}")
 
-    state = scan_state(root)
+    state = scan_state(root, args.dry_run)
     cutoff = max((entry["timestamp"] for entry in state.values()), default=0)
     print(f"found {len(state)} synced file(s); cutoff timestamp {cutoff}")
 

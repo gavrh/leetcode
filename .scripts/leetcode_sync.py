@@ -396,7 +396,7 @@ def collect_recent(client: GraphQL, cutoff: int, full: bool) -> list:
         submissions = listing.get("submissions") or []
         reached_cutoff = False
         for submission in submissions:
-            timestamp = submission.get("timestamp") or 0
+            timestamp = int(submission.get("timestamp") or 0)
             if not full and cutoff and timestamp and timestamp < cutoff:
                 reached_cutoff = True
                 break
@@ -430,7 +430,7 @@ def pick_best(recent: list) -> dict:
                 "memory": parse_metric(submission.get("memory")),
                 "runtime_str": submission.get("runtime"),
                 "memory_str": submission.get("memory"),
-                "timestamp": submission.get("timestamp") or 0,
+                "timestamp": int(submission.get("timestamp") or 0),
                 }
         current = groups.get(key)
         if current is None or is_better(candidate, current):

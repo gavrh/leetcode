@@ -490,7 +490,9 @@ def render_stats(data: dict, username: str) -> str:
             }
     rank = (user.get("profile") or {}).get("ranking")
     lines = [
-            f"[leetcode.com/u/{username}](https://leetcode.com/u/{username}/) \u00b7 Rank: {format_number(rank)}",
+            f"[leetcode.com/u/{username}](https://leetcode.com/u/{username}/)",
+            "",
+            f"Rank: {format_number(rank)}",
             "",
             "| Difficulty | Solved | Total |",
             "| :-- | --: | --: |",

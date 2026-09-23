@@ -1,6 +1,6 @@
 // LeetCode 283. Move Zeroes (Easy)
 // https://leetcode.com/problems/move-zeroes/
-// Submitted 2026-09-18 07:08 UTC · runtime 2 · memory 60156000 · submission 2145489922
+// Submitted 2026-09-18 07:08 UTC · runtime 2 ms · memory 60.2 MB · submission 2145489922
 
 /**
  Do not return anything, modify nums in-place instead.

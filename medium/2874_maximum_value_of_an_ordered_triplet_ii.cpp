@@ -1,6 +1,6 @@
 // LeetCode 2874. Maximum Value of an Ordered Triplet II (Medium)
 // https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii/
-// Submitted 2025-04-18 06:34 UTC · runtime N/A · memory 90908000 · submission 1610198944
+// Submitted 2025-04-18 06:34 UTC · runtime N/A · memory 90.9 MB · submission 1610198944
 
 class Solution {
 public:

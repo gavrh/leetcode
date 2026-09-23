@@ -1,6 +1,6 @@
 // LeetCode 21. Merge Two Sorted Lists (Easy)
 // https://leetcode.com/problems/merge-two-sorted-lists/
-// Submitted 2025-03-09 18:51 UTC · runtime N/A · memory 10616000 · submission 1568378645
+// Submitted 2025-03-09 18:51 UTC · runtime N/A · memory 10.6 MB · submission 1568378645
 
 /**
  * Definition for singly-linked list.

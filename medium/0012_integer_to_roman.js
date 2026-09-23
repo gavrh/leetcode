@@ -1,6 +1,6 @@
 // LeetCode 12. Integer to Roman (Medium)
 // https://leetcode.com/problems/integer-to-roman/
-// Submitted 2022-04-28 21:52 UTC · runtime 130 · memory 47928000 · submission 689331637
+// Submitted 2022-04-28 21:52 UTC · runtime 130 ms · memory 47.9 MB · submission 689331637
 
 function intToRoman(num) {
   var roman = {

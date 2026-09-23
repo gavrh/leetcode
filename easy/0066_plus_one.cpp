@@ -1,6 +1,6 @@
 // LeetCode 66. Plus One (Easy)
 // https://leetcode.com/problems/plus-one/
-// Submitted 2026-09-20 20:10 UTC · runtime N/A · memory 11556000 · submission 2148066149
+// Submitted 2026-09-20 20:10 UTC · runtime N/A · memory 11.6 MB · submission 2148066149
 
 class Solution {
 public:

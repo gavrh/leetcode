@@ -1,6 +1,6 @@
 // LeetCode 13. Roman to Integer (Easy)
 // https://leetcode.com/problems/roman-to-integer/
-// Submitted 2022-04-28 21:50 UTC · runtime 107 · memory 46548000 · submission 689330902
+// Submitted 2022-04-28 21:50 UTC · runtime 107 ms · memory 46.5 MB · submission 689330902
 
 var romanToInt = function(s) {
 

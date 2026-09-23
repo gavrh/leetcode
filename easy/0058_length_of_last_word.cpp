@@ -1,6 +1,6 @@
 // LeetCode 58. Length of Last Word (Easy)
 // https://leetcode.com/problems/length-of-last-word/
-// Submitted 2026-09-20 08:39 UTC · runtime N/A · memory 8692000 · submission 2147498172
+// Submitted 2026-09-20 08:39 UTC · runtime N/A · memory 8.7 MB · submission 2147498172
 
 class Solution {
 public:

@@ -1,6 +1,6 @@
 // LeetCode 200. Number of Islands (Medium)
 // https://leetcode.com/problems/number-of-islands/
-// Submitted 2025-05-12 16:18 UTC · runtime 3 · memory 49876000 · submission 1632046550
+// Submitted 2025-05-12 16:18 UTC · runtime 3 ms · memory 49.9 MB · submission 1632046550
 
 class Solution {
 

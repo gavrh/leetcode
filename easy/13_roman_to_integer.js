@@ -1,0 +1,32 @@
+// LeetCode 13. Roman to Integer (Easy)
+// https://leetcode.com/problems/roman-to-integer/
+// Submitted 2022-04-28 21:50 UTC · runtime 107 · memory 46548000 · submission 689330902
+
+var romanToInt = function(s) {
+
+    const sym = { 
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+
+    let result = 0;
+
+    for (i=0; i < s.length; i++){
+        const cur = sym[s[i]];
+        const next = sym[s[i+1]];
+
+        if (cur < next){
+            result += next - cur // IV -> 5 - 1 = 4
+            i++
+        } else {
+            result += cur
+        }
+    }
+
+    return result; 
+};

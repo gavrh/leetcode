@@ -1,6 +1,6 @@
 // LeetCode 145. Binary Tree Postorder Traversal (Easy)
 // https://leetcode.com/problems/binary-tree-postorder-traversal/
-// Submitted 2025-04-16 17:06 UTC · runtime 0 ms · memory 42 MB · submission 1608748230
+// Submitted 2025-04-16 17:06 UTC · runtime 0 ms · memory 42.0 MB · submission 1608748230
 
 /**
  * Definition for a binary tree node.

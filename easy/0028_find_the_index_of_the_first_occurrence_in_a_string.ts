@@ -1,6 +1,6 @@
 // LeetCode 28. Find the Index of the First Occurrence in a String (Easy)
 // https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
-// Submitted 2026-09-18 07:56 UTC · runtime 1 ms · memory 55 MB · submission 2145521108
+// Submitted 2026-09-18 07:56 UTC · runtime 1 ms · memory 55.0 MB · submission 2145521108
 
 function strStr(haystack: string, needle: string): number {
     let start = 0

@@ -1,6 +1,6 @@
 // LeetCode 4. Median of Two Sorted Arrays (Hard)
 // https://leetcode.com/problems/median-of-two-sorted-arrays/
-// Submitted 2025-04-08 09:42 UTC · runtime 0 ms · memory 95 MB · submission 1600476804
+// Submitted 2025-04-08 09:42 UTC · runtime 0 ms · memory 95.0 MB · submission 1600476804
 
 class Solution {
 public:

@@ -1,8 +1,6 @@
 <!-- leetcode-stats:start -->
 [leetcode.com/u/gavrh](https://leetcode.com/u/gavrh/)
 
-Rank: 3,160,051
-
 | Difficulty | Solved | Total |
 | :-- | --: | --: |
 | **All** | **39** | 4,060 |

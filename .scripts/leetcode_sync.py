@@ -125,7 +125,6 @@ STATS_QUERY = """
 query userSessionProgress($username: String!) {
   allQuestionsCount { difficulty count }
   matchedUser(username: $username) {
-    profile { ranking }
     submitStats { acSubmissionNum { difficulty count } }
   }
 }
@@ -488,11 +487,8 @@ def render_stats(data: dict, username: str) -> str:
             entry["difficulty"]: entry["count"]
             for entry in (user.get("submitStats") or {}).get("acSubmissionNum") or []
             }
-    rank = (user.get("profile") or {}).get("ranking")
     lines = [
             f"[leetcode.com/u/{username}](https://leetcode.com/u/{username}/)",
-            "",
-            f"Rank: {format_number(rank)}",
             "",
             "| Difficulty | Solved | Total |",
             "| :-- | --: | --: |",

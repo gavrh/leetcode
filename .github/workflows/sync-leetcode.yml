@@ -2,8 +2,7 @@ name: Sync LeetCode
 
 on:
   schedule:
-    # Every day at 07:00 UTC. GitHub may delay scheduled runs under load.
-    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       full:

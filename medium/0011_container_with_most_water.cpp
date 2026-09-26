@@ -1,6 +1,6 @@
 // LeetCode 11. Container With Most Water (Medium)
 // https://leetcode.com/problems/container-with-most-water/
-// Submitted 2026-09-24 09:20 UTC · runtime 0 ms · memory 63 MB · submission 2151819154
+// Submitted 2026-09-24 09:20 UTC · runtime 0 ms · memory 63.0 MB · submission 2151819154
 
 class Solution {
 public:

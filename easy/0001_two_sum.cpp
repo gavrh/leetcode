@@ -1,20 +1,22 @@
 // LeetCode 1. Two Sum (Easy)
 // https://leetcode.com/problems/two-sum/
-// Submitted 2023-07-24 05:49 UTC · runtime 166 ms · memory 10.1 MB · submission 1002353361
+// Submitted 2026-09-26 05:47 UTC · runtime 0 ms · memory 14.9 MB · submission 2153559481
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        if (nums.size() == 2) return { 0, 1 };
-        int i = 0;
-        while (true) {
-            vector<int>::iterator itr = std::find(nums.begin(), nums.end(), target-nums[i]);
-            if (itr != nums.end()) {
-                if ((itr-nums.begin()) != i) {
-                    return { i, static_cast<int>(std::distance(nums.begin(), itr)) };
-                }
+        vector<int> res(2);
+        std::unordered_map<int, int> seen;
+
+        for (size_t i {}; i < nums.size(); i++) {
+            if ((bool) seen.count(target - nums[i])) {
+                res = { seen[target - nums[i]], (int) i };
+                break;
             }
-            i++;
+
+            seen[nums[i]] = (int) i;
         }
+
+        return res;
     }
 };

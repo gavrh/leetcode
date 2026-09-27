@@ -1,6 +1,6 @@
 // LeetCode 15. 3Sum (Medium)
 // https://leetcode.com/problems/3sum/
-// Submitted 2026-09-24 10:58 UTC · runtime 37 ms · memory 29 MB · submission 2151901382
+// Submitted 2026-09-24 10:58 UTC · runtime 37 ms · memory 29.0 MB · submission 2151901382
 
 class Solution {
 public:

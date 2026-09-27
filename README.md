@@ -3,8 +3,8 @@
 
 | Difficulty | Solved | Total |
 | :-- | --: | --: |
-| **All** | **44** | 4,060 |
-| [Easy](easy/) | 25 | 966 |
-| [Medium](medium/) | 18 | 2,117 |
-| [Hard](hard/) | 1 | 977 |
+| **All** | **51** | 4,068 |
+| [Easy](easy/) | 27 | 968 |
+| [Medium](medium/) | 23 | 2,121 |
+| [Hard](hard/) | 1 | 979 |
 <!-- leetcode-stats:end -->

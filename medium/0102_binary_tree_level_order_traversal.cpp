@@ -1,6 +1,6 @@
 // LeetCode 102. Binary Tree Level Order Traversal (Medium)
 // https://leetcode.com/problems/binary-tree-level-order-traversal/
-// Submitted 2026-09-28 05:11 UTC · runtime 0 ms · memory 17 MB · submission 2155585268
+// Submitted 2026-09-28 05:11 UTC · runtime 0 ms · memory 17.0 MB · submission 2155585268
 
 /**
  * Definition for a binary tree node.
